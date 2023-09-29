@@ -1,4 +1,18 @@
+<?php
 
+session_set_cookie_params(60);
+session_start();
+if(!isset($_SESSION['id']) || empty($_SESSION['id'])){
+  header("location:connexion.php");
+  exit;
+}
+else{
+
+}
+
+include ('traitement.php');
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +29,17 @@
       <a href="ouaga.php">OUAGADOUGOU</a>
       <a href="bobo.php">BOBO-DIOULASSO</a>
       <a href="ziniare.php">ZINIARE</a>
+      <a href="contact.php">CONTACT</a>
+      <form action="deconnexion.php" method="POST">
+        <input type="submit" name="submit" value="Se deconnecter" class="submit">
+      </form> 
         
     </nav>
     
     <div class="sac1">
       <img src="images/imag122.jpg" alt="photo"> 
-      <h1>BIENVENUE SUR LE SITE TOURISTIQUE DU BF</h1>    
+      <h1>BIENVENUE SUR LE SITE TOURISTIQUE DU BF</h1> 
+        
     </div>
     <h2 class="you">Les différents types de sites a visité</h2>
     <div class="sac2">
@@ -55,5 +74,19 @@
       </div>
       
     </footer>
+
+<style>
+
+.submit{
+  margin-top:15%;
+  height:40px;
+  padding-left:-10%;
+  font-size:20px;
+  color:red;
+}
+
+
+</style>
+
 </body>
 </html>
